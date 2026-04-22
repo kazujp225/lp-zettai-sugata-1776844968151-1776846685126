@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zettai素肌 - 絶対的な素肌美へ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* リセット */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Sans JP', sans-serif;
+      background: #f9fafb;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    /* ===== ヘッダー ===== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      height: 64px;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 0 32px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .header-logo {
+      font-size: 1.375rem;
+      font-weight: 700;
+      color: #1f2937;
+      letter-spacing: -0.5px;
+    }
+
+    .header-logo span {
+      color: #2563eb;
+      font-weight: 700;
+    }
+
+    .header-nav {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .header-nav a {
+      font-size: 0.95rem;
+      color: #4b5563;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .header-nav a:hover {
+      color: #2563eb;
+    }
+
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      color: #fff;
+      padding: 10px 28px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      border: none;
+      cursor: pointer;
+      min-height: 44px;
+    }
+
+    .header-cta:hover {
+      background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+      transform: translateY(-2px);
+    }
+
+    /* ===== メインコンテンツ ===== */
+    main {
+      width: 100%;
+    }
+
+    section {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    section img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* ===== お問い合わせセクション ===== */
+    .contact-section {
+      width: 100%;
+      background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);
+      padding: 60px 32px;
+    }
+
+    .contact-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1f2937;
+      text-align: center;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .contact-section p {
+      font-size: 1.05rem;
+      color: #6b7280;
+      text-align: center;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 8px;
+    }
+
+    .form-group .required {
+      color: #dc2626;
+      margin-left: 4px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background: #fff;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #9ca3af;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      background: #fff;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+      font-size: 1rem;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 14px 24px;
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      min-height: 52px;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    .form-submit:hover {
+      background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .form-submit:active {
+      transform: translateY(0);
+    }
+
+    /* フォーム送信メッセージ */
+    .form-message {
+      display: none;
+      padding: 16px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 600;
+      margin-top: 16px;
+    }
+
+    .form-message.success {
+      background: #dcfce7;
+      color: #166534;
+      display: block;
+    }
+
+    .form-message.error {
+      background: #fee2e2;
+      color: #991b1b;
+      display: block;
+    }
+
+    /* ===== フッター ===== */
+    footer {
+      background: #111827;
+      padding: 40px 32px;
+      text-align: center;
+      color: #d1d5db;
+      font-size: 0.9rem;
+    }
+
+    footer p {
+      margin-bottom: 8px;
+    }
+
+    footer a {
+      color: #60a5fa;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #93c5fd;
+      text-decoration: underline;
+    }
+
+    /* ===== 追従CTA（モバイル） ===== */
+    .floating-cta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      padding: 12px 16px;
+      z-index: 99;
+      box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .floating-cta button {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Noto Sans JP', sans-serif;
+      transition: all 0.3s ease;
+      min-height: 48px;
+    }
+
+    .floating-cta button:active {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    /* ===== レスポンシブ対応 ===== */
+    @media (max-width: 768px) {
+      .header {
+        height: 56px;
+        padding: 0 16px;
+        flex-wrap: wrap;
+      }
+
+      .header-logo {
+        font-size: 1.1rem;
+        flex: 1;
+      }
+
+      .header-nav {
+        display: none;
+      }
+
+      .header-cta {
+        padding: 8px 16px;
+        font-size: 0.875rem;
+        min-height: 40px;
+      }
+
+      .contact-section {
+        padding: 40px 16px;
+      }
+
+      .contact-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+      }
+
+      .contact-section p {
+        font-size: 0.95rem;
+        margin-bottom: 24px;
+      }
+
+      .form-group {
+        margin-bottom: 16px;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        padding: 12px 12px;
+        font-size: 16px;
+        min-height: 48px;
+      }
+
+      .form-group textarea {
+        min-height: 100px;
+      }
+
+      .form-submit {
+        font-size: 1rem;
+        padding: 12px 16px;
+        min-height: 48px;
+      }
+
+      .floating-cta {
+        display: block;
+      }
+
+      footer {
+        padding: 24px 16px;
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .contact-section h2 {
+        font-size: 1.375rem;
+      }
+
+      .form-group label {
+        font-size: 0.9rem;
+      }
+
+      body {
+        background: #fff;
+      }
+
+      main {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== ヘッダー ===== -->
+<header class="header">
+  <div class="header-logo">Zettai<span>素肌</span></div>
+  <nav class="header-nav">
+    <a href="#features">特徴</a>
+    <a href="#pricing">料金</a>
+    <a href="#contact">お問い合わせ</a>
+  </nav>
+  <a href="#contact" class="header-cta">今すぐ試す</a>
+</header>
+
+<!-- ===== メインコンテンツ ===== -->
+<main>
+  <!-- ヒーロー画像 -->
+  <section>
+    <img src="https://jqpavdhxvmvuhwrbnosd.supabase.co/storage/v1/object/public/images/zettai-sugata-1776844615294-1-hero.png" alt="Zettai素肌 - 絶対的な素肌美へ" />
+  </section>
+
+  <!-- 問題提示 -->
+  <section>
+    <img src="https://jqpavdhxvmvuhwrbnosd.supabase.co/storage/v1/object/public/images/zettai-sugata-1776844614370-2-problem.png" alt="肌の悩み" />
+  </section>
+
+  <!-- ソリューション -->
+  <section>
+    <img src="https://jqpavdhxvmvuhwrbnosd.supabase.co/storage/v1/object/public/images/zettai-sugata-1776844726097-3-solution.png" alt="解決方法" />
+  </section>
+
+  <!-- 特徴 -->
+  <section id="features">
+    <img src="https://jqpavdhxvmvuhwrbnosd.supabase.co/storage/v1/object/public/images/zettai-sugata-1776844731189-4-features.png" alt="主な特徴" />
+  </section>
+
+  <!-- 料金 -->
+  <section id="pricing">
+    <img src="https://jqpavdhxvmvuhwrbnosd.supabase.co/storage/v1/object/public/images/zettai-sugata-1776844842352-5-pricing.png" alt="料金プラン" />
+  </section>
+
+  <!-- CTA画像 -->
+  <section>
+    <img src="https://jqpavdhxvmvuhwrbnosd.supabase.co/storage/v1/object/public/images/zettai-sugata-1776844842534-6-cta.png" alt="お申込みはこちら" />
+  </section>
+
+  <!-- ===== お問い合わせフォーム ===== -->
+  <section class="contact-section" id="contact">
+    <div class="contact-container">
+      <h2>今すぐ始める</h2>
+      <p>あなたの素肌美を実現するため、まずはお気軽にお問い合わせください。</p>
+      
+      <form id="contactForm" onsubmit="handleFormSubmit(event)">
+        <div class="form-group">
+          <label for="name">
+            お名前
+            <span class="required">*</span>
+          </label>
+          <input 
+            type="text" 
+            id="name" 
+            name="name" 
+            placeholder="山田 太郎" 
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email">
+            メールアドレス
+            <span class="required">*</span>
+          </label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            placeholder="example@example.com" 
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">
+            電話番号
+            <span class="required">*</span>
+          </label>
+          <input 
+            type="tel" 
+            id="phone" 
+            name="phone" 
+            placeholder="090-1234-5678" 
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="message">
+            ご質問・ご相談
+            <span class="required">*</span>
+          </label>
+          <textarea 
+            id="message" 
+            name="message" 
+            placeholder="こちらにご質問やご相談をお書きください..." 
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit" class="form-submit">送信する</button>
+        <div class="form-message" id="formMessage"></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- ===== フッター ===== -->
+<footer>
+  <p>&copy; 2026 Zettai素肌. All rights reserved.</p>
+  <p><a href="#privacy">プライバシーポリシー</a> | <a href="#terms">利用規約</a></p>
+</footer>
+
+<!-- ===== モバイル追従CTA ===== -->
+<div class="floating-cta">
+  <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">
+    お問い合わせする
+  </button>
+</div>
+
+<!-- ===== JavaScriptスクリプト ===== -->
+<script>
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    
+    const form = event.target;
+    const formMessage = document.getElementById('formMessage');
+    
+    // フォームデータの取得
+    const formData = new FormData(form);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      message: formData.get('message'),
+      timestamp: new Date().toISOString()
+    };
+    
+    // 実装例：コンソール出力（実際はバックエンド処理に送信）
+    console.log('フォーム送信:', data);
+    
+    // 送信成功メッセージを表示
+    formMessage.textContent = 'ありがとうございます。ご送信いただいた内容を確認いたします。';
+    formMessage.className = 'form-message success';
+    
+    // フォームをリセット
+    form.reset();
+    
+    // 3秒後にメッセージを非表示
+    setTimeout(() => {
+      formMessage.className = 'form-message';
+    }, 4000);
+  }
+
+  // スムーズスクロール対応（古いブラウザ用）
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (href !== '#' && document.querySelector(href)) {
+        e.preventDefault();
+        document.querySelector(href).scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
